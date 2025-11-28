@@ -17,7 +17,7 @@
         pkgs = nixpkgsFor.${system};
       in
       {
-        hm-ricing-mode = pkgs.callPackage ./package/package.nix { };
+        hm-ricing-mode = pkgs.callPackage ./package/package.nix {};
       });
 
     hm-ricing-mode = forAllSystems (system: self.packages.${system}.hm-ricing-mode);
