@@ -1,10 +1,11 @@
-{ config, lib, pkgs, ... }:
+self: { config, pkgs, lib, ... }:
 
 let
   cfg = config.programs.hm-ricing-mode;
   iniFormat = pkgs.formats.json { };
 
- 	hm-ricing-mode = pkgs.callPackage ../package/package.nix { inherit pkgs lib; };
+  inherit (pkgs.stdenv.hostPlatform) system;
+  hm-ricing-mode = self.packages.${system}.hm-ricing-mode;
 
   mipmip = {
     name = "Pim Snel";

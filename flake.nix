@@ -23,12 +23,7 @@
     hm-ricing-mode = forAllSystems (system: self.packages.${system}.hm-ricing-mode);
     defaultPackage = forAllSystems (system: self.packages.${system}.hm-ricing-mode);
 
-    homeManagerModules.hm-ricing-mode = { pkgs, ... }:
-    {
-      imports = [
-        "${self}/module/hm-ricing-mode.nix"
-      ];
-    };
+    homeManagerModules.hm-ricing-mode = import ./module/hm-ricing-mode.nix self;
 
     };
 }
